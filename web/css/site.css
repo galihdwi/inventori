@@ -119,3 +119,28 @@ a.desc:after {
   height:160px;
   margin-top:15px;
 }
+/*CSS WEB OPTONAL*/
+
+.center{
+    text-align: center;
+    align-content: center;
+}
+
+.clear{
+    clear: both;
+}
+
+.pull-right{
+    padding: 10px;
+}
+
+.breadcrumbs{
+    font-size: 8pt;
+}
+
+#qrcode {
+    float: right;
+    width:100px;
+    height:100px;
+    margin: 20px;
+}

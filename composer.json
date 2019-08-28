@@ -20,7 +20,9 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "dmstr/yii2-adminlte-asset": "^2.1",
         "2amigos/qrcode-library": "~1.1",
-        "richardfan1126/yii2-js-register": "*"
+        "richardfan1126/yii2-js-register": "*",
+        "kartik-v/yii2-widget-select2": "dev-master",
+        "bahirul/yii2-autonumber": "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
