@@ -130,12 +130,22 @@ a.desc:after {
     clear: both;
 }
 
-.pull-right{
+.float-right{
     padding: 10px;
 }
 
 .breadcrumbs{
     font-size: 8pt;
+}
+
+.btn-sm{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 8pt;
+}
+
+.padding-tables{
+    padding: 10px;
 }
 
 #qrcode {

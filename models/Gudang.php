@@ -3,9 +3,9 @@
 namespace app\models;
 
 use Yii;
-use yii\base\model;
+use yii\base\Model;
 use yii\db\ActiveRecord;
-
+use \mdm\behaviors\ar\RelationTrait;
 
 /**
  * 
@@ -21,14 +21,16 @@ class Gudang extends \yii\db\ActiveRecord
 	public function rules()
 	{
 		return [
-			[['perangkat','type','idperangkat','sn','penyimpanan','kondisi','tglmasuk','tglkeluar','tglmasukdismantle','tglkeluardismantle'],'string','max' => 100],
+			[['id'], 'integer', 'max' =>11],
+			[['perangkat','type','sn','penyimpanan','kondisi','tglmasuk','tglkeluar','tglmasukdismantle','tglkeluardismantle'],'string','max' => 100],
 			['perangkat','required','message' => 'nama perangkat harus diisi'],
 			['type','required','message' => 'type perangkat harus diisi'],
 			['sn','required','message' => 'serial number perangkat harus diisi'],
 			['penyimpanan','required','message' => 'rak harus diisi'],
 			['kondisi','required','message' => 'lokasi perangkat harus diisi'],
 			['tglmasuk','required','message' => 'lokasi perangkat harus diisi'],
-			['tglkeluar','required','message' => 'lokasi perangkat harus diisi'],
+			[['idperangkat'], 'autonumber', 'format'=>'DTN.'.date('Ymd').'-?', 'digit'=>4],
+			// ['tglkeluar','required','message' => 'lokasi perangkat harus diisi'],
 		];
 	}
 
@@ -47,4 +49,21 @@ class Gudang extends \yii\db\ActiveRecord
 			'tglkeluardismantle' => 'Tanggal Keluar Dismantle',
 		];
 	}
+
+	public function behaviors()
+	{
+		return [
+			[
+				'class' => 'bahirul\yii2\autonumber\Behavior',
+				'attribute' => 'idperangkat', // required
+				'value' => 'DTN.'.date('Y-m-d').'.?' , // format auto number. '?' will be replaced with generated number or you can use " 'value' => function($event){ return 'SA.'.date('Y-m-d').'.?' } " as long the return value contain '?' character
+				'digit' => 4 // optional, default to null. 
+			],
+		];
+	}
+
+	public function getDataInstallasi()
+    {
+        return $this->hasMany(Installasi::className(), ['gudang_id' => 'id']);
+    }
 }

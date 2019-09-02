@@ -11,10 +11,16 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="panel panel-default">
-	<div class="panel-heading"><?= Html::encode($this->title) ?></div>
+    <div class="panel-heading">
+        <div class="panel-title pull-left"><?= Html::encode($this->title) ?></div>
+        <div class="pull-right">
+            <?= Html::a('<i class="glyphicon glyphicon-plus"></i>', ['gudang/create'], ['class' => 'btn btn-sm btn-primary']) ?>
+        </div>
+        <div class="clearfix"></div>
+    </div>
 	<div class="panel-body">
 
-		<div class="pull-right"><?= Html::a('<i class="glyphicon glyphicon-plus"></i> Perangkat', ['gudang/create'], ['class' => 'btn btn-primary']) ?></div>
+		<div class="float-right"></div>
 
 		<div class="clear"></div>
 

@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use app\assets\AdminLtePluginAsset;
-use app\assets\QrcodeAsset;
+use app\assets\QRcodeAsset;
 
 use richardfan\widget\JSRegister;
 QrcodeAsset::register($this);

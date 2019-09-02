@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\bootstrap\Nav;
 use richardfan\widget\JSRegister;
-use app\assets\QrcodeAsset;
+use app\assets\QRcodeAsset;
 
 QrcodeAsset::register($this);
 
@@ -35,8 +35,30 @@ $this->params['breadcrumbs'][] = $this->title;
                 'tglkeluardismantle',
             ],
         ]) ?>
-      
     </div>
+
+    <h4 class="padding-tables">Riwayat Installasi/Dismantle</h4>
+    <div class="table-responsive padding-tables">
+        <table class="table table-striped table-bordered padding-gridview">
+            <tr>
+                <th>Lokasi</th>
+                <th>Teknis</th>
+                <th>Tanggal Installasi</th>
+                <th>Tanggal Dismantle</th>
+                <th>Keterangan</th>
+            </tr>
+            <?php foreach($model->dataInstallasi as $dataInstall) :?>
+                <tr>
+                    <td><?= $dataInstall->lokasi ?></td>
+                    <td><?= $dataInstall->teknis ?></td>
+                    <td><?= $dataInstall->tglinstall ?></td>
+                    <td><?= $dataInstall->tgldismantle ?></td>
+                    <td><?= $dataInstall->keterangan ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
+    
 </div>
 
 <?php JSRegister::begin(['position' => \yii\web\View::POS_READY]); ?>
